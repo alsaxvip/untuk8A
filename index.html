@@ -1,349 +1,103 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SURAT UNTUK KAMU, DARI BU ALSA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>SURAT UNTUK KAMU, DARI BU ALSAAA</title>
     <style>
-        :root {
-            --green: #4CAF50; /* Example green from a typical school logo */
-            --white: #FFFFFF;
-            --yellow: #FBFF07; /* Example yellow */
-            --red: #F44336;
-            --light-red: #FFCDD2; /* Lighter red for highlighting */
-            --light-grey: #f2f2f2;
-        }
-
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             margin: 0;
-            padding: 20px;
-            background-color: var(--light-grey);
-            color: #333;
+            background-color: #f4f4f4;
         }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        header img {
-            max-width: 120px;
-            height: auto;
-            margin-bottom: 15px;
-        }
-
-        header h1 {
-            color: var(--green);
-            margin: 0;
-            font-size: 2.2em;
-        }
-
-        #login-section {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        #login-section input[type="text"] {
-            padding: 10px 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1.1em;
-            margin-right: 10px;
-        }
-
-        #login-section button {
-            background-color: var(--green);
-            color: var(--white);
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
-        }
-
-        #login-section button:hover {
-            background-color: #45a049; /* Darker green on hover */
-        }
-
-        #student-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-            padding: 15px;
-            background-color: var(--light-grey);
-            border-radius: 5px;
-            border-left: 5px solid var(--yellow);
-        }
-
-        .info-item strong {
-            color: var(--green);
-        }
-
-        .info-item span {
-            display: block;
-            margin-top: 5px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
         table {
-            width: 100%;
+            width: 80%;
+            max-width: 600px;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
         }
-
-        table th, table td {
+        th, td {
             border: 1px solid #ddd;
             padding: 12px;
-            text-align: center;
+            text-align: left;
         }
-
-        table th {
-            background-color: var(--green);
-            color: var(--white);
-            text-transform: uppercase;
-        }
-
-        table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        table tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        .incorrect-row {
-            background-color: var(--light-red) !important;
-        }
-
-        .highlight-yellow {
-            background-color: var(--yellow) !important;
+        th {
+            background-color: #4CAF50;
+            color: white;
             font-weight: bold;
         }
-
-        #loading {
-            text-align: center;
-            font-size: 1.2em;
-            color: #666;
-            margin-top: 50px;
+        td {
+            background-color: #f9f9f9;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="https://iili.io/FqqmPFp.png" alt="Logo Sekolah">
-            <h1>SURAT UNTUK KAMU, DARI BU ALSA</h1>
-        </header>
-
-        <section id="login-section">
-            <input type="text" id="nisn-input" placeholder="Masukkan NISN">
-            <button id="search-button">CARI SURAT</button>
-            <p id="error-message" style="color: var(--red); margin-top: 10px;" class="hidden"></p>
-        </section>
-
-        <section id="loading" class="hidden">
-            loading data...
-        </section>
-
-        <section id="result-section">
-            <section id="student-info" class="hidden">
-            <div class="info-item">
-                <strong>NAMA LENGKAP :</strong> <span id="student-name"></span>
-            </div>
-            <div class="info-item">
-                <strong>NISN :</strong> <span id="student-nisn"></span>
-            </div>
-            <div class="info-item">
-                <strong>KELAS :</strong> <span id="student-class"></span>
-            </div>
-            <div class="info-item">
-                <strong>PREDIKAT :</strong> <span id="student-predicate"></span>
-            </div>
-            </section>
-        </section>
-        
-
-        <section id="grades-section" class="hidden">
-            <table id="grades-table">
-                <thead>
-                    <tr>
-                        <th>SYARAT</th>
-                        <th>PESAN</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    </tbody>
-            </table>
-        </section>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>SURAT UNTUK KAMU, DARI BU ALSAAA</th>
+            </tr>
+        </thead>
+        <tbody id="pesan-table-body">
+            <tr>
+                <td>Memuat pesan...</td>
+            </tr>
+        </tbody>
+    </table>
 
     <script>
-        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS47Sy_vLSRuqIzYWEkHuB9da8CyKS4ADyR9N95i8W05yxYYw6zH2A9L1UXLtYfc3qXE5JCS9nRfc1e/pub?gid=0&single=true&output=csv';
-        let studentData = [];
+        const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS47Sy_vLSRuqIzYWEkHuB9da8CyKS4ADyR9N95i8W05yxYYw6zH2A9L1UXLtYfc3qXE5JCS9nRfc1e/pub?gid=0&single=true&output=csv";
+        const tableBody = document.getElementById('pesan-table-body');
 
-        const nisnInput = document.getElementById('nisn-input');
-        const searchButton = document.getElementById('search-button');
-        const loadingSection = document.getElementById('loading');
-        const studentInfoSection = document.getElementById('student-info');
-        const gradesSection = document.getElementById('grades-section');
-        const gradesTableBody = document.querySelector('#grades-table tbody');
-        const errorMessage = document.getElementById('error-message');
-
-        // Student Info elements
-        const studentName = document.getElementById('student-name');
-        const studentNisn = document.getElementById('student-nisn');
-        const studentClass = document.getElementById('student-class');
-        const studentPredicate = document.getElementById('student-predicate');
-
-        // Mapping for assessment aspects and their corresponding column indices (0-indexed)
-        // Assuming columns A-D for student info, E onwards for grades
-        const assessmentAspects = [
-            { label: 'HARUS SENYUM', colIndex: 4 },
-            { label: 'LKS BAB 2', colIndex: 5 },
-            { label: 'LKS BAB 3', colIndex: 6 },
-            { label: 'CATATAN TUGAS BAB 1', colIndex: 7 },
-            { label: 'CATATAN TUGAS BAB 2', colIndex: 8 },
-            { label: 'CATATAN TUGAS BAB 3', colIndex: 9 },
-            { label: 'KETERAMPILAN BAB 1', colIndex: 10 },
-            { label: 'KETERAMPILAN BAB 2', colIndex: 11 },
-            { label: 'KETERAMPILAN BAB 3', colIndex: 12 },
-            { label: 'ATS LKS', colIndex: 13 },
-            { label: 'ATS ASLI', colIndex: 14 },
-            { label: 'ATS PERBAIKAN 25 SOAL', colIndex: 15 },
-            { label: 'AAS LKS', colIndex: 16 },
-            { label: 'AAS ASLI', colIndex: 17 },
-            { label: 'PENILAIAN HARIAN', colIndex: 18, highlight: 'yellow' },
-            { label: 'NILAI AKHIR ATS', colIndex: 19, highlight: 'yellow' },
-            { label: 'NILAI AKHIR AAS', colIndex: 20, highlight: 'yellow' }
-        ];
-
-        async function fetchCSVData() {
-            loadingSection.classList.remove('hidden');
-            try {
-                const response = await fetch(CSV_URL);
+        fetch(csvUrl)
+            .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error('Network response was not ok ' + response.statusText);
                 }
-                const csvText = await response.text();
-                parseCSV(csvText);
-            } catch (error) {
-                console.error('Error fetching CSV:', error);
-                errorMessage.textContent = 'Gagal memuat data nilai. Silakan coba lagi nanti.';
-                errorMessage.classList.remove('hidden');
-            } finally {
-                loadingSection.classList.add('hidden');
-            }
-        }
-
-        function parseCSV(csv) {
-            const lines = csv.split('\n').filter(line => line.trim() !== ''); // Filter out empty lines
-            if (lines.length < 2) {
-                errorMessage.textContent = 'Data CSV tidak valid (kurang dari 2 baris).';
-                errorMessage.classList.remove('hidden');
-                return;
-            }
-
-            const headers = lines[0].split(','); // Row 1 is header
-            studentData = [];
-            for (let i = 1; i < lines.length; i++) { // Row 2 onwards are data
-                const values = lines[i].split(',');
-                if (values.length >= 21) { // Ensure enough columns
-                    studentData.push({
-                        'NAMA LENGKAP': values[0].trim(),
-                        'NISN': values[1].trim(),
-                        'KELAS': values[2].trim(),
-                        'PREDIKAT': values[3].trim(),
-                        'grades': values.slice(4).map(val => val.trim()) // Grades start from column E (index 4)
-                    });
-                }
-            }
-            console.log('Parsed Student Data:', studentData);
-        }
-
-        function displayStudentGrades(nisn) {
-            const student = studentData.find(s => s.NISN === nisn);
-
-            if (student) {
-                errorMessage.classList.add('hidden');
-                studentInfoSection.classList.remove('hidden');
-                gradesSection.classList.remove('hidden');
-
-                studentName.textContent = student['NAMA LENGKAP'];
-                studentNisn.textContent = student.NISN;
-                studentClass.textContent = student.KELAS;
-                studentPredicate.textContent = student.PREDIKAT;
-
-                gradesTableBody.innerHTML = ''; // Clear previous data
-
-                assessmentAspects.forEach(aspect => {
-                    const row = gradesTableBody.insertRow();
-                    const aspectCell = row.insertCell();
-                    const valueCell = row.insertCell();
-
-                    aspectCell.textContent = aspect.label;
-
-                    const grade = student.grades[aspect.colIndex - 4]; // Adjust index because 'grades' array starts from column E (index 4 in original CSV)
-                    let displayValue = '';
-
-                    if (grade === undefined || grade === null || grade === '') {
-                        displayValue = 'N/A';
-                        row.classList.add('incorrect-row');
+                return response.text();
+            })
+            .then(csvText => {
+                const rows = csvText.split('\\n');
+                // Target cell E2, which is row index 1, column index 4 (0-indexed)
+                if (rows.length > 1) {
+                    const dataRow = rows[1];
+                    const cells = dataRow.split(',');
+                    if (cells.length > 4) {
+                        const pesanContent = cells[4].trim(); // Get content from E2
+                        tableBody.innerHTML = `
+                            <tr>
+                                <td>${pesanContent}</td>
+                            </tr>
+                        `;
                     } else {
-                        try {
-                            displayValue = Math.round(parseFloat(grade)).toString();
-                            if (isNaN(parseFloat(grade))) {
-                                displayValue = 'N/A';
-                                row.classList.add('incorrect-row');
-                            }
-                        } catch (e) {
-                            displayValue = 'N/A';
-                            row.classList.add('incorrect-row');
-                        }
+                        tableBody.innerHTML = `
+                            <tr>
+                                <td>Error: Kolom E2 tidak ditemukan.</td>
+                            </tr>
+                        `;
                     }
-                    valueCell.textContent = displayValue;
-
-                    if (aspect.highlight === 'yellow') {
-                        row.classList.add('highlight-yellow');
-                    }
-                });
-            } else {
-                studentInfoSection.classList.add('hidden');
-                gradesSection.classList.add('hidden');
-                errorMessage.textContent = 'NISN tidak ditemukan. Pastikan NISN yang dimasukkan benar.';
-                errorMessage.classList.remove('hidden');
-            }
-        }
-
-        searchButton.addEventListener('click', () => {
-            const nisn = nisnInput.value.trim();
-            if (nisn) {
-                displayStudentGrades(nisn);
-            } else {
-                errorMessage.textContent = 'Silakan masukkan NISN.';
-                errorMessage.classList.remove('hidden');
-                studentInfoSection.classList.add('hidden');
-                gradesSection.classList.add('hidden');
-            }
-        });
-
-        // Fetch data when the page loads
-        fetchCSVData();
+                } else {
+                    tableBody.innerHTML = `
+                        <tr>
+                            <td>Error: Baris data tidak ditemukan.</td>
+                        </tr>
+                    `;
+                }
+            })
+            .catch(error => {
+                console.error('Ada masalah dengan operasi fetch:', error);
+                tableBody.innerHTML = `
+                    <tr>
+                        <td>Gagal memuat pesan: ${error.message}</td>
+                    </tr>
+                `;
+            });
     </script>
 </body>
 </html>
