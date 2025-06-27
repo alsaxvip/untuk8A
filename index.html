@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SURAT UNTUK KAMU, DARI BU ALSA</title>
+    <title>NILAI MATEMATIKA</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -148,12 +148,12 @@
     <div class="container">
         <header>
             <img src="https://iili.io/FqqmPFp.png" alt="Logo Sekolah">
-            <h1>SURAT UNTUK KAMU, DARI BU ALSA</h1>
+            <h1>NILAI MATEMATIKA</h1>
         </header>
 
         <section id="login-section">
             <input type="text" id="nisn-input" placeholder="Masukkan NISN">
-            <button id="search-button">CARI SURAT</button>
+            <button id="search-button">Cari Nilai</button>
             <p id="error-message" style="color: var(--red); margin-top: 10px;" class="hidden"></p>
         </section>
 
@@ -183,8 +183,8 @@
             <table id="grades-table">
                 <thead>
                     <tr>
-                        <th>SYARAT</th>
-                        <th>PESAN</th>
+                        <th>ASPEK PENILAIAN</th>
+                        <th>NILAI</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -215,6 +215,22 @@
         // Assuming columns A-D for student info, E onwards for grades
         const assessmentAspects = [
             { label: 'HARUS SENYUM', colIndex: 4 },
+            { label: 'LKS BAB 2', colIndex: 5 },
+            { label: 'LKS BAB 3', colIndex: 6 },
+            { label: 'CATATAN TUGAS BAB 1', colIndex: 7 },
+            { label: 'CATATAN TUGAS BAB 2', colIndex: 8 },
+            { label: 'CATATAN TUGAS BAB 3', colIndex: 9 },
+            { label: 'KETERAMPILAN BAB 1', colIndex: 10 },
+            { label: 'KETERAMPILAN BAB 2', colIndex: 11 },
+            { label: 'KETERAMPILAN BAB 3', colIndex: 12 },
+            { label: 'ATS LKS', colIndex: 13 },
+            { label: 'ATS ASLI', colIndex: 14 },
+            { label: 'ATS PERBAIKAN 25 SOAL', colIndex: 15 },
+            { label: 'AAS LKS', colIndex: 16 },
+            { label: 'AAS ASLI', colIndex: 17 },
+            { label: 'PENILAIAN HARIAN', colIndex: 18, highlight: 'yellow' },
+            { label: 'NILAI AKHIR ATS', colIndex: 19, highlight: 'yellow' },
+            { label: 'NILAI AKHIR AAS', colIndex: 20, highlight: 'yellow' }
         ];
 
         async function fetchCSVData() {
