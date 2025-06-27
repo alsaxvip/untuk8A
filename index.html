@@ -148,7 +148,7 @@
     <div class="container">
         <header>
             <img src="https://iili.io/FqqmPFp.png" alt="Logo Sekolah">
-            <h1>SELAMAT DATANG</h1>
+            <h1>SURAT UNTUK KAMU, DARI BU ALSA</h1>
         </header>
 
         <section id="login-section">
@@ -201,6 +201,12 @@
         // Student Info elements
         const studentName = document.getElementById('student-name');
         const studentNisn = document.getElementById('student-nisn');
+
+        // Mapping for assessment aspects and their corresponding column indices (0-indexed)
+        // Assuming columns A-D for student info, E onwards for grades
+        const assessmentAspects = [
+            { label: 'Pesan', colIndex: 4 },
+        ];
 
         async function fetchCSVData() {
             loadingSection.classList.remove('hidden');
