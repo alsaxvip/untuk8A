@@ -1,13 +1,382 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Situs Siswa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SURAT UNTUK KAMU ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-        iframe { border: none; width: 100%; height: 100%; }
+        /* ... (CSS Anda tidak berubah, tetap sama) ... */
+        :root {
+            /* Warna dari logo sekolah: hijau, putih, kuning, merah */
+            --color-primary-green: #4CAF50; /* Hijau utama */
+            --color-dark-green: #388E3C; /* Hijau gelap */
+            --color-white: #FFFFFF; /* Putih */
+            --color-yellow: #FFEB3B; /* Kuning */
+            --color-red: #F44336; /* Merah */
+            --color-light-gray: #f4f4f4;
+            --color-text: #333;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-light-gray);
+            color: var(--color-text);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 20px;
+        }
+        .container {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .header img {
+            height: 80px;
+            margin-right: 20px;
+        }
+        .header h1 {
+            color: var(--color-dark-green);
+            margin: 0;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            color: var(--color-primary-green);
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        /* Pesan Table */
+        .pesan-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .pesan-section th, .pesan-section td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .pesan-section th {
+            background-color: var(--color-primary-green);
+            color: var(--color-white);
+            font-weight: bold;
+        }
+        .pesan-section td {
+            background-color: var(--color-light-gray);
+        }
+
+        /* Login/Search Section */
+        .login-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .login-section input[type="text"] {
+            padding: 12px 15px;
+            margin-right: 10px;
+            border: 1px solid var(--color-primary-green);
+            border-radius: 8px;
+            width: calc(60% - 25px);
+            max-width: 200px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        .login-section button {
+            padding: 12px 25px;
+            background-color: var(--color-primary-green);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .login-section button:hover:not(:disabled) {
+            background-color: var(--color-dark-green);
+        }
+        /* Tombol tidak perlu disabled secara default lagi, jadi styling ini mungkin tidak terlalu sering terlihat */
+        .login-section button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #resultTableContainer {
+            margin-top: 25px;
+            min-height: 100px;
+            text-align: left;
+        }
+        #resultTable {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        #resultTable th, #resultTable td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        #resultTable th {
+            background-color: var(--color-yellow); /* Kuning untuk header hasil pencarian */
+            color: var(--color-text);
+            font-weight: bold;
+        }
+        #resultTable td {
+            background-color: var(--color-light-gray);
+        }
+        .message-box {
+            color: var(--color-red); /* Merah untuk pesan error */
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid var(--color-red);
+            background-color: #ffe0e0;
+            border-radius: 5px;
+        }
+        .success-message {
+            color: var(--color-primary-green); /* Hijau untuk pesan sukses */
+            border: 1px solid var(--color-primary-green);
+            background-color: #e0ffe0;
+        }
+        .loading-message {
+            color: #555;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbybuTxNE87kdSSWSlmBV1WpJdZf6DKRT-R2UO-_vkmO4wVjnaDD0duJcmj6moyjjHOC/exec"></iframe>
+    <div class="container">
+        <div class="header">
+            <img src="https://iili.io/FqqmPFp.png" alt="Logo Sekolah">
+            <h1>SURAT UNTUK KAMU ❤️</h1>
+        </div>
+
+        <div class="pesan-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STAY STROOOOONG</th>
+                    </tr>
+                </thead>
+                <tbody id="pesan-table-body">
+                    <tr>
+                        <td>SEMANGAT</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="login-section">
+            <h2>Cari Surat?</h2>
+            <p>Masukkan NISN biar bisa lihat surat dari Bu Alsaaa:</p>
+            <input type="text" id="nisnInput" placeholder="Masukkan NISN">
+            <button id="searchButton" onclick="searchNISN()">Cari Surat</button>
+            <p id="loadingStatus" class="loading-message hidden">Memuat data siswa, mohon tunggu...</p>
+            <div id="resultTableContainer">
+                <p class="message-box hidden" id="statusMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let fullSuratData = null; // Variabel global untuk menyimpan data siswa lengkap
+        let nisnColumnData = null; // Variabel global untuk menyimpan hanya kolom NISN yang valid untuk pencarian
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tampilkan pesan loading singkat saat data mulai dimuat
+            const loadingStatus = document.getElementById('loadingStatus');
+            loadingStatus.classList.remove('hidden');
+            loadingStatus.textContent = "Memuat data awal...";
+
+            google.script.run
+                .withSuccessHandler(loadData)
+                .withFailureHandler(handleLoadingError)
+                .getSpreadsheetData();
+        });
+
+        function loadData(data) {
+            const pesanTableBody = document.getElementById('pesan-table-body');
+            const loadingStatus = document.getElementById('loadingStatus');
+            const statusMessage = document.getElementById('statusMessage');
+
+            // Sembunyikan pesan loading setelah data diterima
+            loadingStatus.classList.add('hidden');
+
+            // Cek jika ada error dari Apps Script
+            if (data.error) {
+                console.error("Error dari Apps Script:", data.error);
+                statusMessage.textContent = `Error memuat data: ${data.error}`;
+                statusMessage.classList.remove('hidden');
+                statusMessage.classList.add('message-box');
+                return;
+            }
+
+            // --- Tampilkan PESAN ---
+            if (data.pesan && data.pesan.length > 0) {
+                pesanTableBody.innerHTML = ''; // Kosongkan dulu
+                data.pesan.forEach(pesan => {
+                    // Pastikan pesan tidak kosong/null/undefined sebelum menampilkannya
+                    if (pesan !== null && pesan !== undefined && String(pesan).trim() !== '') {
+                        pesanTableBody.innerHTML += `<tr><td>${pesan}</td></tr>`;
+                    }
+                });
+                if (pesanTableBody.innerHTML === '') { // Jika semua pesan kosong
+                    pesanTableBody.innerHTML = `<tr><td>Tidak ada pesan terbaru yang valid.</td></tr>`;
+                }
+            } else {
+                pesanTableBody.innerHTML = `<tr><td>SEMANGAAAAAT</td></tr>`;
+            }
+
+            // --- Simpan data siswa dan siapkan data NISN untuk login ---
+            fullSuratData = data.suratData;
+
+            if (fullSuratData && fullSuratData.length > 1) { // Pastikan ada header dan setidaknya 1 baris data
+                // Kita akan mencari NISN berdasarkan posisi kolom 'NISN' di header
+                const headers = fullSuratData[0];
+                const nisnHeaderIndex = headers.findIndex(h => String(h).trim().toUpperCase() === 'NISN');
+
+                if (nisnHeaderIndex !== -1) {
+                    // Ambil hanya kolom NISN dari data (mulai dari baris ke-2)
+                    nisnColumnData = fullSuratData.slice(1).map(row => {
+                        return row[nisnHeaderIndex] !== undefined ? String(row[nisnHeaderIndex]).trim() : '';
+                    }).filter(nisn => nisn !== ''); // Hapus NISN yang kosong
+                    
+                    console.log("NISN yang dimuat untuk login:", nisnColumnData); // DEBUG: Cek NISN yang terbaca
+                } else {
+                    console.warn("Kolom 'NISN' tidak ditemukan di header sheet 'SURAT'.");
+                    nisnColumnData = []; // Kosongkan jika header NISN tidak ditemukan
+                }
+            } else {
+                nisnColumnData = []; // Kosongkan jika tidak ada data sama sekali
+            }
+
+            // Berikan umpan balik ke pengguna
+            if (!fullSuratData || fullSuratData.length < 2 || nisnColumnData.length === 0) {
+                statusMessage.textContent = "Data siswa kosong atau kolom NISN tidak ditemukan/kosong di sheet 'SURAT'.";
+                statusMessage.classList.remove('hidden');
+                statusMessage.classList.add('message-box');
+            } else {
+                statusMessage.textContent = "Data siswa berhasil dimuat. Anda bisa mencari sekarang.";
+                statusMessage.classList.remove('hidden');
+                statusMessage.classList.add('success-message');
+            }
+            // Sembunyikan pesan status setelah beberapa detik
+            setTimeout(() => {
+                statusMessage.classList.add('hidden');
+                statusMessage.classList.remove('success-message');
+                statusMessage.classList.remove('message-box');
+            }, 5000);
+        }
+
+        function handleLoadingError(error) {
+            const loadingStatus = document.getElementById('loadingStatus');
+            const statusMessage = document.getElementById('statusMessage');
+
+            loadingStatus.classList.add('hidden'); // Sembunyikan pesan loading
+            statusMessage.textContent = `Gagal memuat data awal dari spreadsheet: ${error.message}. Mohon periksa koneksi atau coba lagi nanti.`;
+            statusMessage.classList.remove('hidden');
+            statusMessage.classList.add('message-box');
+            console.error("Failed to load initial spreadsheet data:", error);
+        }
+
+        function searchNISN() {
+            const nisnInput = document.getElementById('nisnInput');
+            const nisn = nisnInput.value.trim();
+            const resultContainer = document.getElementById('resultTableContainer');
+            const statusMessage = document.getElementById('statusMessage');
+
+            statusMessage.classList.add('hidden'); // Sembunyikan pesan status sebelumnya
+            resultContainer.innerHTML = ''; // Bersihkan hasil sebelumnya
+
+            if (!nisn) {
+                statusMessage.textContent = "NISN tidak boleh kosong.";
+                statusMessage.classList.remove('hidden');
+                statusMessage.classList.add('message-box');
+                return;
+            }
+
+            // Pastikan data siswa sudah dimuat
+            if (!fullSuratData || fullSuratData.length < 2 || !nisnColumnData || nisnColumnData.length === 0) {
+                statusMessage.textContent = "Data siswa belum dimuat sepenuhnya atau kosong. Mohon tunggu beberapa saat dan coba lagi.";
+                statusMessage.classList.remove('hidden');
+                statusMessage.classList.add('message-box');
+                return;
+            }
+
+            // Cek apakah NISN yang dimasukkan ada di daftar NISN yang valid
+            // Menggunakan includes pada nisnColumnData yang sudah bersih
+            if (!nisnColumnData.includes(nisn)) {
+                statusMessage.textContent = `NISN "${nisn}" tidak terdaftar atau tidak memiliki akses.`;
+                statusMessage.classList.remove('hidden');
+                statusMessage.classList.add('message-box');
+                return;
+            }
+
+            const headers = fullSuratData[0]; // Baris pertama adalah header
+            const nisnHeaderIndex = headers.findIndex(h => String(h).trim().toUpperCase() === 'NISN');
+            const namaLengkapHeaderIndex = headers.findIndex(h => String(h).trim().toUpperCase() === 'NAMA LENGKAP');
+
+            if (nisnHeaderIndex === -1 || namaLengkapHeaderIndex === -1) {
+                statusMessage.textContent = "Kesalahan konfigurasi: Kolom 'NISN' atau 'NAMA LENGKAP' tidak ditemukan di header sheet SURAT.";
+                statusMessage.classList.remove('hidden');
+                statusMessage.classList.add('message-box');
+                return;
+            }
+
+            let foundRow = null;
+            // Mulai pencarian dari baris kedua (indeks 1) untuk melewati header
+            for (let i = 1; i < fullSuratData.length; i++) {
+                const row = fullSuratData[i];
+                // Pastikan kolom NISN ada di baris dan cocok
+                if (row[nisnHeaderIndex] !== undefined && String(row[nisnHeaderIndex]).trim() === nisn) {
+                    foundRow = row;
+                    break;
+                }
+            }
+
+            if (foundRow) {
+                let tableHtml = '<table id="resultTable"><thead><tr>';
+                headers.forEach(header => {
+                    tableHtml += `<th>${header || ''}</th>`; // Pastikan header tidak null/undefined
+                });
+                tableHtml += '</tr></thead><tbody><tr>';
+                foundRow.forEach(cell => {
+                    tableHtml += `<td>${cell || ''}</td>`; // Tampilkan semua sel dari baris yang ditemukan
+                });
+                tableHtml += '</tr></tbody></table>';
+                resultContainer.innerHTML = tableHtml;
+            } else {
+                // Ini seharusnya tidak terjadi jika nisnColumnData sudah mengandung NISN,
+                // tapi ini adalah fallback jika ada ketidaksesuaian data.
+                statusMessage.textContent = `NISN "${nisn}" tidak ditemukan dalam data siswa.`;
+                statusMessage.classList.remove('hidden');
+                statusMessage.classList.add('message-box');
+                resultContainer.innerHTML = '';
+            }
+        }
+    </script>
 </body>
 </html>
