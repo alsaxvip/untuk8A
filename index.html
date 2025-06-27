@@ -153,7 +153,7 @@
 
         <section id="login-section">
             <input type="text" id="nisn-input" placeholder="Masukkan NISN">
-            <button id="search-button">Cari Surat</button>
+            <button id="search-button">Cari Nilai</button>
             <p id="error-message" style="color: var(--red); margin-top: 10px;" class="hidden"></p>
         </section>
 
@@ -169,6 +169,12 @@
             <div class="info-item">
                 <strong>NISN :</strong> <span id="student-nisn"></span>
             </div>
+            <div class="info-item">
+                <strong>KELAS :</strong> <span id="student-class"></span>
+            </div>
+            <div class="info-item">
+                <strong>PREDIKAT :</strong> <span id="student-predicate"></span>
+            </div>
             </section>
         </section>
         
@@ -177,6 +183,7 @@
             <table id="grades-table">
                 <thead>
                     <tr>
+                        <th>SYARAT</th>
                         <th>PESAN</th>
                     </tr>
                 </thead>
@@ -187,7 +194,7 @@
     </div>
 
     <script>
-        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS47Sy_vLSRuqIzYWEkHuB9da8CyKS4ADyR9N95i8W05yxYYw6zH2A9L1UXLtYfc3qXE5JCS9nRfc1e/pub?gid=0&single=true&output=csv;
+        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRs-RK5zrgpKBUJAKD6pCXmLAfqWgHDSyzY9rgAJMFnvzyO-iyyFRlqVKnhUQQlzJp_pPAAbJFQljX_/pub?gid=1829383988&single=true&output=csv';
         let studentData = [];
 
         const nisnInput = document.getElementById('nisn-input');
@@ -201,11 +208,13 @@
         // Student Info elements
         const studentName = document.getElementById('student-name');
         const studentNisn = document.getElementById('student-nisn');
+        const studentClass = document.getElementById('student-class');
+        const studentPredicate = document.getElementById('student-predicate');
 
         // Mapping for assessment aspects and their corresponding column indices (0-indexed)
         // Assuming columns A-D for student info, E onwards for grades
         const assessmentAspects = [
-            { label: 'Pesan', colIndex: 4 },
+            { label: 'HARUS SENYUM', colIndex: 3 },
         ];
 
         async function fetchCSVData() {
@@ -219,7 +228,7 @@
                 parseCSV(csvText);
             } catch (error) {
                 console.error('Error fetching CSV:', error);
-                errorMessage.textContent = 'Gagal memuat data pesan. Silakan coba lagi nanti.';
+                errorMessage.textContent = 'Gagal memuat data nilai. Silakan coba lagi nanti.';
                 errorMessage.classList.remove('hidden');
             } finally {
                 loadingSection.classList.add('hidden');
@@ -242,6 +251,9 @@
                     studentData.push({
                         'NAMA LENGKAP': values[0].trim(),
                         'NISN': values[1].trim(),
+                        'KELAS': values[2].trim(),
+                        'PREDIKAT': values[3].trim(),
+                        'grades': values.slice(4).map(val => val.trim()) // Grades start from column E (index 4)
                     });
                 }
             }
@@ -258,6 +270,8 @@
 
                 studentName.textContent = student['NAMA LENGKAP'];
                 studentNisn.textContent = student.NISN;
+                studentClass.textContent = student.KELAS;
+                studentPredicate.textContent = student.PREDIKAT;
 
                 gradesTableBody.innerHTML = ''; // Clear previous data
 
